@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 
 import com.app.drylining.custom.AppDebugLog;
 import com.app.drylining.data.ApplicationData;
+import com.app.drylining.ui.DashboardActivity;
 import com.app.drylining.ui.MainActivity;
 
 import java.util.ArrayList;
@@ -34,10 +35,12 @@ public class SplashActivity extends Activity implements DialogInterface.OnClickL
     GifView pGif;
     private ApplicationData appData;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+        appData = ApplicationData.getSharedInstance();
 
 
         pGif = (GifView) findViewById(R.id.progressBar);
@@ -59,10 +62,17 @@ public class SplashActivity extends Activity implements DialogInterface.OnClickL
     }
 
     private void closeScreen() {
-        Intent lIntent = new Intent();
-        lIntent.setClass(this, MainActivity.class);
-        startActivity(lIntent);
-        this.finish();
+        String isLogin = appData.getIsLoggedIn();
+        if(isLogin.equals("Y")){
+            startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
+            this.finish();
+        }else {
+            Intent lIntent = new Intent();
+            lIntent.setClass(this, MainActivity.class);
+            startActivity(lIntent);
+            this.finish();
+        }
+
     }
 
     /**
