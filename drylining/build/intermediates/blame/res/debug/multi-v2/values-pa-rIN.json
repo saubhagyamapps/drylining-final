@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pa-rIN\\values-pa-rIN.xml",
+            "outputFile": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-pa-rIN\\values-pa-rIN.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\exoplayer-ui-r2.5.1.aar\\7f321b9fbbf077f3c6b535a67ef61c28\\res\\values-pa-rIN\\values-pa-rIN.xml",

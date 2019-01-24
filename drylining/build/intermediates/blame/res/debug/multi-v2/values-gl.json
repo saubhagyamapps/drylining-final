@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-gl\\values-gl.xml",
+            "outputFile": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-gl\\values-gl.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-12.0.1.aar\\bc9683e1ca8634c665d66ebb1f6eab50\\res\\values-gl\\values.xml",

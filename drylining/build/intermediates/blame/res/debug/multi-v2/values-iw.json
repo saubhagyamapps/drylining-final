@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-iw\\values-iw.xml",
+            "outputFile": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-iw\\values-iw.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\values-iw\\values-iw.xml",

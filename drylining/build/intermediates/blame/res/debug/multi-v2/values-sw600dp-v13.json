@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
+            "outputFile": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw600dp-v13\\values-sw600dp-v13.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\f8d5a0d19e97bbf5c27a020be43c0598\\res\\values-sw600dp-v13\\values-sw600dp-v13.xml",

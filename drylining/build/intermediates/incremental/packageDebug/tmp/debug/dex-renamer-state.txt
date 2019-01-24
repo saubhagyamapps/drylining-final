@@ -1,13 +1,7 @@
-#Thu Jan 24 10:08:53 IST 2019
-path.3=classes.dex
-path.2=classes.dex
+#Thu Jan 24 17:20:47 IST 2019
+base.0=C\:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\transforms\\dexMerger\\debug\\10
 path.1=classes.dex
-path.0=classes.dex
-renamed.3=classes4.dex
-renamed.2=classes3.dex
 renamed.1=classes2.dex
+path.0=classes.dex
 renamed.0=classes.dex
-base.3=E\:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\transforms\\dexMerger\\debug\\13
-base.2=E\:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\transforms\\dexMerger\\debug\\12
-base.1=E\:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\transforms\\dexMerger\\debug\\14
-base.0=E\:\\Dryling\\Yagnesh\\drylining\\drylining\\build\\intermediates\\transforms\\dexMerger\\debug\\11
+base.1=C\:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\transforms\\dexMerger\\debug\\16
