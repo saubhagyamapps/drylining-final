@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "280808735416",
+    "firebase_url": "https://drylining-90f8b.firebaseio.com",
+    "project_id": "drylining-90f8b",
+    "storage_bucket": "drylining-90f8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:280808735416:android:15b3fc2997b49876",
+        "android_client_info": {
+          "package_name": "com.app.drylining"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "280808735416-bqo3sj3gupimp8737mu349atm35phn1d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtAV9GGWbGmnm1pPicybmh0oFHeXpQJuk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

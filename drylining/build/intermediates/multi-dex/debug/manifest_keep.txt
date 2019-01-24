@@ -1,0 +1,3 @@
+# Referenced at E:\Dryling\Yagnesh\drylining\drylining\build\intermediates\manifests\full\debug\AndroidManifest.xml:34
+-keep class com.app.drylining.DRYLINING { <init>(...); }
+

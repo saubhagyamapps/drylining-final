@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.quickblox:chat-message-adapter:2.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/chat-message-adapter-2.0.aar/49da86e18a5cfd9584fbcf1279d07737/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/chat-message-adapter-2.0.aar/49da86e18a5cfd9584fbcf1279d07737/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
