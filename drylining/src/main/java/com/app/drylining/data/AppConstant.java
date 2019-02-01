@@ -1,5 +1,7 @@
 package com.app.drylining.data;
 
+import com.app.drylining.util.Constant;
+
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
@@ -133,8 +135,7 @@ public abstract class AppConstant
 
 
     //public static final String WEBSERVICE_PATH = "http://estato.eu/estato_server/";
-    public static final String WEBSERVICE_PATH =            "http://dryliningapp.com/admin/api/";
-//    public static final String WEBSERVICE_PATH =            "http://192.168.1.128/drylining_club/api/";
+    public static final String WEBSERVICE_PATH = Constant.WEBSERVICE_PATH;
     public static final String AUTOLOGIN =                  WEBSERVICE_PATH + "autologin.php";
     public static final String LOGIN =                      WEBSERVICE_PATH + "login.php";
     public static final String SIGNUP =                     WEBSERVICE_PATH + "signup.php";

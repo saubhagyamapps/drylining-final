@@ -1331,6 +1331,7 @@
     <string name="another_closest">Another closest similar properties</string>
     <string name="app_name" translatable="false">Drylining</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="asset_statements" translatable="false">[{ \"include\": \"https://drylining.com/.well-known/assetlinks.json\" }]</string>
     <string name="bottom_sheet_behavior" translatable="false">android.support.design.widget.BottomSheetBehavior</string>
     <string name="btn_accept">Accept</string>
     <string name="btn_add">Add</string>
@@ -1394,7 +1395,7 @@
     <string name="chat_sticker">Sticker</string>
     <string name="chat_unsupported_type">Unsupported dialog type</string>
     <string name="chat_wait_for_attachments_to_upload">Wait for all attachments to upload</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">1c824b52-31f3-451b-bb12-8d1b777b0e2a</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">2cd6d4fb-758a-4501-8843-fa59af8800e0</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>

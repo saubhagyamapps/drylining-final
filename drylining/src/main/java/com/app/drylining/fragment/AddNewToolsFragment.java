@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,10 +18,13 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+
 import com.app.drylining.R;
 import com.app.drylining.Util;
 import com.app.drylining.adapter.AddedToolsAdapter;
+import com.app.drylining.adapter.RecentToolAdepter;
 import com.app.drylining.custom.AdminBar;
 import com.app.drylining.custom.AdminPanel;
 import com.app.drylining.custom.AppDebugLog;
@@ -29,30 +33,51 @@ import com.app.drylining.custom.MessageCntSetListener;
 import com.app.drylining.data.AppConstant;
 import com.app.drylining.data.ApplicationData;
 import com.app.drylining.data.Tool;
+import com.app.drylining.model.RecentToolModel;
 import com.app.drylining.network.RequestTask;
 import com.app.drylining.network.RequestTaskDelegate;
+import com.app.drylining.retrofit.ApiClient;
+import com.app.drylining.retrofit.ApiInterface;
 import com.app.drylining.ui.AddNewToolActivity;
 import com.app.drylining.ui.DashboardActivity;
 import com.app.drylining.ui.SearchNewToolActivity;
+import com.app.drylining.util.PaginationScrollListenerLinear;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 @SuppressLint("ValidFragment")
-public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
-{
+public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate {
+
+    private static final String TAG = "AddNewToolsFragment";
+
+    private static final int PAGE_START = 0;
+    RecentToolAdepter recentToolAdepter;
+    LinearLayoutManager linearLayoutManager;
+    RecyclerView recyclerView;
+    ProgressBar progressBar;
+    private boolean isLoading = false;
+    private boolean isLastPage = false;
+    private int TOTAL_PAGES;
+    private int currentPage = PAGE_START;
     private ApplicationData appData;
     private DashboardActivity activity;
     private View view = null;
+    private ApiInterface apiInterface;
 
     private TextView lblError, msgError;
 
-    private RecyclerView recyclerView;
+
     private AddedToolsAdapter adapter;
     private ArrayList<Tool> toolList;
     private ProgressDialog pdialog;
@@ -76,7 +101,6 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
     private CustomAutoCompleteListener listener;
 
 
-
     @SuppressLint("ValidFragment")
     public AddNewToolsFragment() {
         // Required empty public constructor
@@ -90,26 +114,22 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
-    {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         AppDebugLog.println("In onCreateView of AddOfferByAddressFragment : ");
         // Inflate the layout for this fragment
-        if (view == null)
-        {
+        if (view == null) {
             view = inflater.inflate(R.layout.fragment_add_new_tools, container, false);
 
             //toolbar = (Toolbar) view.findViewById(R.id.toolBar);
-            adminLayout= (LinearLayout) view.findViewById(R.id.adminBar);
+            adminLayout = (LinearLayout) view.findViewById(R.id.adminBar);
             recyclerView = (RecyclerView) view.findViewById(R.id.recyclerView);
             msg_success = (TextView) view.findViewById(R.id.msg_success);
             txt_none_added_offer = (TextView) view.findViewById(R.id.txt_none_offers);
 
             btnAddNewTool = (Button) view.findViewById(R.id.btn_add_tool);
-            btnAddNewTool.setOnClickListener(new View.OnClickListener()
-            {
+            btnAddNewTool.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v)
-                {
+                public void onClick(View v) {
                     OnNewToolClicked();
                 }
             });
@@ -124,73 +144,65 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
 
             messageCntSetListener = (MessageCntSetListener) this.getActivity();
 
-            /*AppDebugLog.println("stored location :" + ApplicationData.getSharedInstance().getCurrentLocation());
-            LocationManager locationManager = (LocationManager) this.getActivity().getSystemService(Context.LOCATION_SERVICE);
-            LocationListener locationListener = new LocationListener()
-            {
-                public void onLocationChanged(Location location)
-                {
-                    // Called when a new location is found by the network location provider.
-                    AppDebugLog.println("Current Longitude:" + location.getLongitude());
-                    AppDebugLog.println("Current latitude:" + location.getLatitude());
+            apiInterface = ApiClient.getClient().create(ApiInterface.class);
+            recentToolAdepter = new RecentToolAdepter(getActivity());
+            linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+            recyclerView.setLayoutManager(linearLayoutManager);
+            recyclerView.setAdapter(recentToolAdepter);
+            recyclerView.addOnScrollListener(new PaginationScrollListenerLinear(linearLayoutManager) {
+                @Override
+                protected void loadMoreItems() {
+                    isLoading = true;
+                    currentPage += 1;
 
-                    ApplicationData.getSharedInstance().setCurrentLocation(location.getLatitude() + "," + location.getLongitude());
-
-                    if (adapter != null)
-                    {
-                        adapter.notifyDataSetChanged();
-                    }
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            loadNextPage();
+                        }
+                    }, 1000);
                 }
 
-                public void onStatusChanged(String provider, int status, Bundle extras) {
+                @Override
+                public int getTotalPageCount() {
+                    return TOTAL_PAGES;
                 }
 
-                public void onProviderEnabled(String provider) {
+                @Override
+                public boolean isLastPage() {
+                    return isLastPage;
                 }
 
-                public void onProviderDisabled(String provider)
-                {
-                    Intent i = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivity(i);
+                @Override
+                public boolean isLoading() {
+                    return isLoading;
                 }
-            };
-
-            if (ActivityCompat.checkSelfPermission(this.getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this.getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-                return view;
-            }
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-*/
+            });
             initialize();
-
+            loadFirstPage();
 
         }
         return view;
     }
 
-    private void initialize()
-    {
+    private void initialize() {
         msg_success.setVisibility(View.GONE);
         Intent intent = getActivity().getIntent();
-        try
-        {
+        try {
             String isp = intent.getStringExtra("offerAdded");
-            if(isp.equals("1"))
+            if (isp.equals("1"))
                 msg_success.setVisibility(View.VISIBLE);
-        }
-        catch(Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             msg_success.setVisibility(View.GONE);
         }
 
-        if(intent.getIntExtra("OFFER_REMOVED", 0) == 1)
-        {
+        if (intent.getIntExtra("OFFER_REMOVED", 0) == 1) {
             msg_success.setVisibility(View.VISIBLE);
             msg_success.setText("YOUR OFFER HAS BEEN REMOVED");
         }
 
-        if(intent.getIntExtra("offerUpdated", 0) == 1)
-        {
+        if (intent.getIntExtra("offerUpdated", 0) == 1) {
             msg_success.setVisibility(View.VISIBLE);
             msg_success.setText("YOUR OFFER HAS BEEN MODIFIED");
         }
@@ -202,39 +214,81 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
 
         //setToolbar();
 
-        animShow = AnimationUtils.loadAnimation( this.getActivity(), R.anim.view_show);
-        animHide = AnimationUtils.loadAnimation( this.getActivity(), R.anim.view_hide);
+        animShow = AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_show);
+        animHide = AnimationUtils.loadAnimation(this.getActivity(), R.anim.view_hide);
     }
 
-    public void OnNewToolClicked()
-    {
-        if (appData.getConnectionDetector().isConnectingToInternet())
-        {
+
+    private void loadFirstPage() {
+        Log.d(TAG, "loadFirstPage: ");
+        Call<RecentToolModel> modelCall = apiInterface.getRecentTool(Integer.parseInt(appData.getUserId()), "R", currentPage);
+        modelCall.enqueue(new Callback<RecentToolModel>() {
+            @Override
+            public void onResponse(Call<RecentToolModel> call, Response<RecentToolModel> response) {
+                TOTAL_PAGES = response.body().getTotalpages();
+
+                List<RecentToolModel.ResultBean> results = response.body().getResult();
+                // progressBar.setVisibility(View.GONE);
+                recentToolAdepter.addAll(results);
+
+                if (currentPage <= TOTAL_PAGES) recentToolAdepter.addLoadingFooter();
+                else isLastPage = true;
+            }
+
+            @Override
+            public void onFailure(Call<RecentToolModel> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+
+    }
+
+
+    private void loadNextPage() {
+        Log.d(TAG, "loadNextPage: " + currentPage);
+        Call<RecentToolModel> modelCall = apiInterface.getRecentTool(Integer.parseInt(appData.getUserId()), "R", currentPage);
+        modelCall.enqueue(new Callback<RecentToolModel>() {
+            @Override
+            public void onResponse(Call<RecentToolModel> call, Response<RecentToolModel> response) {
+                recentToolAdepter.removeLoadingFooter();
+                isLoading = false;
+
+                List<RecentToolModel.ResultBean> results = response.body().getResult();
+                recentToolAdepter.addAll(results);
+
+                if (currentPage != TOTAL_PAGES) recentToolAdepter.addLoadingFooter();
+                else isLastPage = true;
+            }
+
+            @Override
+            public void onFailure(Call<RecentToolModel> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
+
+    public void OnNewToolClicked() {
+        if (appData.getConnectionDetector().isConnectingToInternet()) {
             startActivity(new Intent(activity, AddNewToolActivity.class));
             //activity.finish();
-        }
-        else{
+        } else {
             Util.showNoConnectionDialog(activity);
         }
     }
 
 
-
     @Override
-    public void onResume()
-    {
+    public void onResume() {
         AppDebugLog.println("In resume of LoginFragment");
         super.onResume();
         toolList.clear();
 
-        sendGetProperties();
+        // sendGetProperties();
     }
 
-    private void sendGetProperties()
-    {
-        if (appData.getConnectionDetector().isConnectingToInternet())
-        {
-            showProgressDialog();
+    private void sendGetProperties() {
+        if (appData.getConnectionDetector().isConnectingToInternet()) {
+            //    showProgressDialog();
             RequestTask requestTask = new RequestTask(AppConstant.GET_RECENT_TOOLS, AppConstant.HttpRequestType.RecentTools);
             requestTask.delegate = AddNewToolsFragment.this;//AddedOffersActivity.this;
             String userId = appData.getUserId();
@@ -242,10 +296,8 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
         }
     }
 
-    private void setRecyclerView()
-    {
-        if (adapter == null)
-        {
+    private void setRecyclerView() {
+        if (adapter == null) {
             AppDebugLog.println("location in setRecyclerView:" + this.location);
             //adapter = new AddedOffersAdapter(this, offerList);
             adapter = new AddedToolsAdapter(this.getActivity(), toolList);
@@ -256,25 +308,21 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
         }
         adapter.notifyDataSetChanged();
 
-        if(toolList.size() == 0)
-        {
+       /* if (toolList.size() == 0) {
             txt_none_added_offer.setVisibility(View.VISIBLE);
-        }
-        else{
+        } else {
             txt_none_added_offer.setVisibility(View.GONE);
-        }
+        }*/
     }
 
     @Override
-    public void backgroundActivityComp(String response, AppConstant.HttpRequestType completedRequestType)
-    {
-        cancelProgressDialog();
+    public void backgroundActivityComp(String response, AppConstant.HttpRequestType completedRequestType) {
+        //cancelProgressDialog();
         JSONObject properties_response = null;
-        try
-        {
+        try {
             properties_response = new JSONObject(response);
 
-            Log.e("Property Response",response.toString());
+            Log.e("Property Response", response.toString());
 
             String status = properties_response.getString("status");
             AppDebugLog.println("Properties status is " + status);
@@ -291,8 +339,7 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
             //adminbar.setUserName(appData.getUserName());
             //adminbar.setUserId(appData.getUserId());
 
-            for (int i = 0; i < properties_array.length(); i++)
-            {
+            for (int i = 0; i < properties_array.length(); i++) {
                 JSONObject property = properties_array.getJSONObject(i);
                 int id = Integer.parseInt(property.getString("id").toString());
                 String name = property.getString("name");
@@ -313,7 +360,7 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
                 tool.setCurrency(currency_type);
                 toolList.add(tool);
             }
-            setRecyclerView();
+            //   setRecyclerView();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -321,20 +368,17 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
 
 
     @Override
-    public void timeOut()
-    {
+    public void timeOut() {
 
     }
 
     @Override
-    public void codeError(int code)
-    {
+    public void codeError(int code) {
 
     }
 
     @Override
-    public void percentageDownloadCompleted(int percentage, Object record)
-    {
+    public void percentageDownloadCompleted(int percentage, Object record) {
 
     }
 
@@ -352,12 +396,10 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
         }
     }
 
-    private void OnNewSearchClicked()
-    {
+    private void OnNewSearchClicked() {
         if (appData.getConnectionDetector().isConnectingToInternet()) {
             startActivity(new Intent(this.getActivity(), SearchNewToolActivity.class));
-        }
-        else{
+        } else {
             Util.showNoConnectionDialog(this.getActivity());
         }
     }

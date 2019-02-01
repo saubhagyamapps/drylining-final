@@ -1024,12 +1024,12 @@
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\chat-message-adapter-2.0.aar\\49da86e18a5cfd9584fbcf1279d07737\\res\\drawable-xhdpi-v4\\qb_logo.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon_close.png.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\icon_close.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_admin_open_arrow.png.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxxhdpi\\admin_open_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_icon_close.png.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\icon_close.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi_ic_person_dark.png.flat",
@@ -2246,6 +2246,10 @@
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\debug\\layout_fragment_modify_tool_pick_from_map.xml.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\layout\\fragment_modify_tool_pick_from_map.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\debug\\layout_item_progress.xml.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\layout\\item_progress.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ic_search_api_material.xml.flat",

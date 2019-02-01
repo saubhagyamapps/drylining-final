@@ -24,6 +24,10 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="asset_statements"
+            android:resource="@string/asset_statements" />
+
         <activity
             android:name=".SplashActivity"
             android:screenOrientation="portrait">
@@ -48,7 +52,19 @@
             android:name=".ui.ChangePasswordActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
 
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden">
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="http"
+                    android:host="drylining.com"
+                    android:pathPrefix="/testing" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".ui.SearchedOffersActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
@@ -226,6 +242,7 @@
             android:theme="@style/ChatActivityTheme" />
 
         <activity android:name=".chat.ui.activity.AttachmentImageActivity" />
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="fc3772ebde8be9072404883b82d14e727154b2c9" />

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
@@ -19,23 +20,21 @@ import android.widget.TextView;
 
 import com.app.drylining.R;
 import com.app.drylining.adapter.NotificationAdapter;
+import com.app.drylining.adapter.NotificationsAdepter1;
 import com.app.drylining.custom.AdminBar;
 import com.app.drylining.custom.AdminPanel;
-import com.app.drylining.custom.AppDebugLog;
 import com.app.drylining.custom.CustomMainActivity;
 import com.app.drylining.data.AppConstant;
 import com.app.drylining.data.ApplicationData;
 import com.app.drylining.data.Conversation;
 import com.app.drylining.model.MSGCountModel;
-import com.app.drylining.network.RequestTask;
-import com.app.drylining.network.RequestTaskDelegate;
+import com.app.drylining.model.NotificationsModel;
 import com.app.drylining.retrofit.ApiClient;
 import com.app.drylining.retrofit.ApiInterface;
-
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.app.drylining.util.PaginationScrollListenerLinear;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,7 +46,7 @@ import static com.app.drylining.ui.DashboardActivity.toolbar_txt_messages_new;
  * Created by Panda on 6/15/2017.
  */
 
-public class ActivityNotifications extends CustomMainActivity implements RequestTaskDelegate {
+public class ActivityNotifications extends CustomMainActivity {
     private static final String TAG = "ActivityNotifications";
     private String userId, userType;
     private TextView btnRemoveAll;
@@ -58,23 +57,66 @@ public class ActivityNotifications extends CustomMainActivity implements Request
     private NotificationAdapter adapter;
     private ProgressDialog pdialog;
     private AdminBar adminbar;
+    private static final int PAGE_START = 0;
+    LinearLayoutManager linearLayoutManager;
     private AdminPanel adminPanel;
     private LinearLayout adminLayout;
     private TextView txtNotifications;
     private Animation animShow, animHide;
+    private boolean isLoading = false;
+    private boolean isLastPage = false;
+    private int TOTAL_PAGES;
+    private int currentPage = PAGE_START;
+    NotificationsAdepter1 notificationsAdepter1;
+    private ApiInterface apiInterface;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notifications);
-
+        appData = ApplicationData.getSharedInstance();
         toolbar = (Toolbar) findViewById(R.id.toolBar);
         adminLayout = (LinearLayout) findViewById(R.id.adminBar);
-
         txtNotifications = (TextView) findViewById(R.id.txt_header);
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        notificationsAdepter1 = new NotificationsAdepter1(getApplicationContext());
+        linearLayoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(notificationsAdepter1);
 
+       // adminbar.setMessages(cnt_notifications);
+
+        recyclerView.addOnScrollListener(new PaginationScrollListenerLinear(linearLayoutManager) {
+            @Override
+            protected void loadMoreItems() {
+                isLoading = true;
+                currentPage += 1;
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        loadNextPage();
+                    }
+                }, 1000);
+            }
+
+            @Override
+            public int getTotalPageCount() {
+                return TOTAL_PAGES;
+            }
+
+            @Override
+            public boolean isLastPage() {
+                return isLastPage;
+            }
+
+            @Override
+            public boolean isLoading() {
+                return isLoading;
+            }
+        });
  /*       btnRemoveAll = (TextView) findViewById(R.id.txt_remove_all);
 
         btnRemoveAll.setOnClickListener(new View.OnClickListener() {
@@ -83,13 +125,64 @@ public class ActivityNotifications extends CustomMainActivity implements Request
                 removeAllClicked();
             }
         });*/
+        loadFirstPage();
     }
+
+    private void loadFirstPage() {
+        showProgressDialog();
+        Log.d(TAG, "loadFirstPage: ");
+        Call<NotificationsModel> modelCall = apiInterface.getNotifacationList(currentPage, "L", appData.getUserId());
+        modelCall.enqueue(new Callback<NotificationsModel>() {
+            @Override
+            public void onResponse(Call<NotificationsModel> call, Response<NotificationsModel> response) {
+                cancelProgressDialog();
+                TOTAL_PAGES = response.body().getTotalpages();
+                List<NotificationsModel.MessagesBean> results = response.body().getMessages();
+                // progressBar.setVisibility(View.GONE);
+                notificationsAdepter1.addAll(results);
+
+                if (currentPage <= TOTAL_PAGES) notificationsAdepter1.addLoadingFooter();
+                else isLastPage = true;
+            }
+
+            @Override
+            public void onFailure(Call<NotificationsModel> call, Throwable t) {
+                cancelProgressDialog();
+                t.printStackTrace();
+            }
+        });
+
+    }
+
+    private void loadNextPage() {
+        Log.d(TAG, "loadNextPage: " + currentPage);
+        Call<NotificationsModel> modelCall = apiInterface.getNotifacationList(currentPage, "L", appData.getUserId());
+        modelCall.enqueue(new Callback<NotificationsModel>() {
+            @Override
+            public void onResponse(Call<NotificationsModel> call, Response<NotificationsModel> response) {
+                notificationsAdepter1.removeLoadingFooter();
+                isLoading = false;
+
+                List<NotificationsModel.MessagesBean> results = response.body().getMessages();
+                notificationsAdepter1.addAll(results);
+
+                if (currentPage != TOTAL_PAGES) notificationsAdepter1.addLoadingFooter();
+                else isLastPage = true;
+            }
+
+            @Override
+            public void onFailure(Call<NotificationsModel> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
+    }
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         try {
             onCreate(savedInstanceState);
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -117,7 +210,7 @@ public class ActivityNotifications extends CustomMainActivity implements Request
             public void onResponse(Call<MSGCountModel> call, Response<MSGCountModel> response) {
                 try {
                     toolbar_txt_messages_new.setText("");
-                }catch (Exception e){
+                } catch (Exception e) {
 
                 }
             }
@@ -139,8 +232,10 @@ public class ActivityNotifications extends CustomMainActivity implements Request
         animHide = AnimationUtils.loadAnimation(this, R.anim.view_hide);
         countApiCall();
         conList = new ArrayList<Conversation>();
-
-        sendGetNotificationsRequest();
+        adminbar.setMessages("1");
+        adminbar.setUserName(appData.getUserName());
+        adminbar.setUserId(appData.getUserId());
+        // sendGetNotificationsRequest();
     }
 
     private void setToolbar() {
@@ -157,7 +252,7 @@ public class ActivityNotifications extends CustomMainActivity implements Request
                     firstActivityIntent = new Intent(ActivityNotifications.this, DashboardActivity.class);
                     finish();
                 } else if (userType.equals("L")) {
-                    firstActivityIntent = new Intent(ActivityNotifications.this,DashboardActivity.class);
+                    firstActivityIntent = new Intent(ActivityNotifications.this, DashboardActivity.class);
                     finish();
                 } else
                     return;
@@ -207,158 +302,11 @@ public class ActivityNotifications extends CustomMainActivity implements Request
             if (appData.getUserType().equals("R"))
                 startActivity(new Intent(this, DashboardActivity.class));
             else if (appData.getUserType().equals("L"))
-                startActivity(new Intent(this,DashboardActivity.class));
+                startActivity(new Intent(this, DashboardActivity.class));
             finish();
         }
     }
 
-    private void removeAllClicked() {
-        showProgressDialog();
-
-        RequestTask requestTask = new RequestTask(AppConstant.REMOVE_NOTIFICATIONS, AppConstant.HttpRequestType.RemoveNotifications);
-
-        requestTask.delegate = ActivityNotifications.this;
-
-        userId = appData.getUserId();
-
-        String post_content = "userId=" + userId;
-
-        requestTask.execute(AppConstant.REMOVE_NOTIFICATIONS + "?" + post_content);
-    }
-
-    private void sendGetNotificationsRequest() {
-        showProgressDialog();
-
-        RequestTask requestTask = new RequestTask(AppConstant.GET_NOTIFICATIONS, AppConstant.HttpRequestType.GetNotifications);
-
-        requestTask.delegate = ActivityNotifications.this;
-
-        userId = appData.getUserId();
-
-        userType = appData.getUserType();
-
-        String post_content = "userId=" + userId + "&userType=" + "L";
-
-        requestTask.execute(AppConstant.GET_NOTIFICATIONS + "?" + post_content);
-//        Log.e(TAG, "sendGetNotificationsRequest: "+requestTask.execute(AppConstant.GET_NOTIFICATIONS + "?" + post_content));
-    }
-
-    private void setRecyclerView() {
-        if (adapter == null) {
-            adapter = new NotificationAdapter(this, conList);
-            RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-            recyclerView.setLayoutManager(mLayoutManager);
-            recyclerView.setHasFixedSize(true);
-            adapter.notifyDataSetChanged();
-            recyclerView.setAdapter(adapter);
-        }
-
-
-    }
-
-    @Override
-    public void backgroundActivityComp(String response, AppConstant.HttpRequestType completedRequestType) {
-        cancelProgressDialog();
-        JSONObject con_response = null;
-
-        try {
-            if (completedRequestType == AppConstant.HttpRequestType.GetNotifications) {
-                con_response = new JSONObject(response);
-
-                Log.d("Property Response", response.toString());
-
-                String status = con_response.getString("status");
-                AppDebugLog.println("Properties status is " + status);
-
-                JSONArray cons_array = con_response.getJSONArray("messages");
-                JSONArray time_array = con_response.getJSONArray("times");
-                for (int i = 0; i < cons_array.length(); i++) {
-                    JSONObject con = cons_array.getJSONObject(i);
-                    int id = con.getInt("id");
-                    int sender = con.getInt("sender_id");
-                    String senderName = con.getString("sender_name");
-
-                    int receiver = con.getInt("receiver_id");
-
-                    int offer = con.getInt("offer_id");
-                    String content = con.getString("content");
-
-                    String message_type = con.getString("message_type");
-
-                    String message_state = con.getString("isRead");
-                    String notification_id = con.getString("notification_id");
-                    String interest_id = con.getString("interest_id");
-                    String confirm_id = con.getString("confirm_id");
-
-                    String newRead = con.getString("read");
-
-                    JSONObject timeObj = time_array.getJSONObject(i);
-                    long agoTime = timeObj.getLong("time");
-
-                    Conversation conversation = new Conversation(id, sender, senderName, content, message_type, message_state, calcTime(agoTime), notification_id,newRead,interest_id,confirm_id);
-                    conversation.setOfferId(offer);
-
-                    conList.add(conversation);
-                }
-
-                String cnt_notifications = String.valueOf(conList.size());
-                //txtNotifications.setText("Notifications (" + cnt_notifications + ")");
-                appData.setCntMessages(cnt_notifications);
-
-                adminbar.setMessages(cnt_notifications);
-                adminbar.setUserName(appData.getUserName());
-                adminbar.setUserId(appData.getUserId());
-            } else if (completedRequestType == AppConstant.HttpRequestType.RemoveNotifications) {
-                conList.clear();
-
-                txtNotifications.setText("Notifications");
-
-                adminbar.setMessages(String.valueOf(0));
-
-                appData.setCntMessages(String.valueOf(0));
-            }
-            setRecyclerView();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private String calcTime(long agoTime) {
-        String res;
-        int days = (int) (agoTime / (3600 * 24));
-        if (days > 0) {
-            res = String.valueOf(days) + " days";
-            return res;
-        }
-
-        int hours = (int) (agoTime / 3600);
-        if (hours > 0) {
-            res = String.valueOf(hours) + " h ";
-            return res;
-        }
-
-
-        int reminder = (int) (agoTime - hours * 3600);
-        int mins = reminder / 60;
-
-        res = String.valueOf(mins) + " min";
-        return res;
-    }
-
-    @Override
-    public void timeOut() {
-
-    }
-
-    @Override
-    public void codeError(int code) {
-
-    }
-
-    @Override
-    public void percentageDownloadCompleted(int percentage, Object record) {
-
-    }
 
     private void showProgressDialog() {
         if (!this.isFinishing() && pdialog == null) {

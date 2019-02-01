@@ -1,4 +1,0 @@
-#Thu Jan 24 17:10:40 IST 2019
-base.0=C\:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\transforms\\dexMerger\\debug\\6
-path.0=classes.dex
-renamed.0=classes.dex

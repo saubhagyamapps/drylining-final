@@ -98,7 +98,7 @@
             android:paddingTop="80dp"
             android:text="@string/none_added_offer"
             android:textSize="20sp"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/txt_none_offers_new"
@@ -109,7 +109,7 @@
             android:paddingTop="80dp"
             android:text="@string/none_added_offer"
             android:textSize="20sp"
-            android:visibility="visible" />
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/btn_add_offer"

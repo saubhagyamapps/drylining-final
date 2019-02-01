@@ -4,8 +4,7 @@ package com.app.drylining.data;
  * Created by Panda on 6/3/2017.
  */
 
-public class Conversation
-{
+public class Conversation {
     private int senderId, receiverId, offerId, id;
     private String content, senderName, messageType, messageState;
 
@@ -50,27 +49,26 @@ public class Conversation
     }
 
     private String notification_id;
-    public Conversation(int sender, int receiver, int offer, String content)
-    {
+
+    public Conversation(int sender, int receiver, int offer, String content) {
         this.senderId = sender;
         this.receiverId = receiver;
         this.offerId = offer;
         this.content = content;
     }
 
-    public Conversation(int id, int senderId, String senderName, String content, String type, String state, String ago,String notification_id,String newRead,String interest_id,String confirm_id)
-    {
+    public Conversation(int id, int senderId, String senderName, String content, String type, String state, String ago, String notification_id, String newRead, String interest_id, String confirm_id) {
         this.id = id;
         this.senderId = senderId;
         this.senderName = senderName;
         this.content = content;
         this.messageType = type;
-        this.messageState= state;
+        this.messageState = state;
         this.time_ago = ago;
-        this.notification_id=notification_id;
-        this.interest_id=interest_id;
-        this.newRead=newRead;
-        this.confirm_id=confirm_id;
+        this.notification_id = notification_id;
+        this.interest_id = interest_id;
+        this.newRead = newRead;
+        this.confirm_id = confirm_id;
     }
 
     public int getId() {
@@ -81,18 +79,15 @@ public class Conversation
         this.id = id;
     }
 
-    public int getSenderId()
-    {
+    public int getSenderId() {
         return senderId;
     }
 
-    public int getReceiverId()
-    {
+    public int getReceiverId() {
         return receiverId;
     }
 
-    public int getOfferId()
-    {
+    public int getOfferId() {
         return offerId;
     }
 
@@ -100,13 +95,11 @@ public class Conversation
         this.offerId = offerId;
     }
 
-    public String getContent()
-    {
+    public String getContent() {
         return content;
     }
 
-    public void addContent(String addString)
-    {
+    public void addContent(String addString) {
         this.content = this.content + "\n" + addString;
     }
 

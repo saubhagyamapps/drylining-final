@@ -295,8 +295,8 @@ public class AddOfferByAddressFragment extends Fragment implements RequestTaskDe
             msgError.setVisibility(View.GONE);
             RequestTask requestTask = new RequestTask(AppConstant.ADD_PROPERTY, AppConstant.HttpRequestType.addProperty);
             requestTask.delegate = AddOfferByAddressFragment.this;
-            requestTask.execute(AppConstant.ADD_PROPERTY, postName + "&" + postPrice + "&" + postCurrencyType + "&" + postCountry + "&" + postCity + "&" + postStreet + "&" + postJobType + "&" + postWorkType + "&" +
-                    postDesc + "&" + postAddType + "&" + postUserId + "&" + postContactName + "&" + postMobile);
+            requestTask.execute(AppConstant.ADD_PROPERTY, postName.replace("'","\\'") + "&" + postPrice + "&" + postCurrencyType + "&" + postCountry + "&" + postCity + "&" + postStreet + "&" + postJobType + "&" + postWorkType + "&" +
+                    postDesc.replace("'","\\'") + "&" + postAddType + "&" + postUserId + "&" + postContactName + "&" + postMobile);
            /* Log.e("AddofferByAdd","fsdddd"+String.valueOf(AppConstant.ADD_PROPERTY, postName + "&" + postPrice + "&" + postCurrencyType + "&" + postCountry + "&" + postCity + "&" + postStreet + "&" + postJobType + "&" + postWorkType + "&" +
                     postDesc + "&" + postAddType + "&" + postUserId + "&" + postContactName + "&" + postMobile));*/
         } else {

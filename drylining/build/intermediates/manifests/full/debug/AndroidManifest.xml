@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.app.drylining"
-    android:versionCode="18"
-    android:versionName="1.20" >
+    android:versionCode="20"
+    android:versionName="1.22" >
 
     <uses-sdk
         android:minSdkVersion="18"
@@ -41,6 +41,10 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <meta-data
+            android:name="asset_statements"
+            android:resource="@string/asset_statements" />
+
         <activity
             android:name="com.app.drylining.SplashActivity"
             android:screenOrientation="portrait" >
@@ -64,7 +68,19 @@
         <activity
             android:name="com.app.drylining.ui.ChangePasswordActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden" >
+            <intent-filter android:autoVerify="true" >
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="drylining.com"
+                    android:pathPrefix="/testing"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
         <activity
             android:name="com.app.drylining.ui.SearchedOffersActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />

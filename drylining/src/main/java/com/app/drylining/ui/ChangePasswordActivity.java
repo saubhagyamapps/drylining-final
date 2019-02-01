@@ -2,6 +2,7 @@ package com.app.drylining.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ChangePasswordActivity extends AppCompatActivity implements View.OnClickListener,RequestTaskDelegate {
+    private static final String TAG = "ChangePasswordActivity";
     private ApplicationData appData;
     private ProgressDialog pdialog;
 
@@ -46,10 +48,9 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
         msgError = (TextView) findViewById(R.id.msg_error);
         btnSubmit = (Button) findViewById(R.id.btn_submit);
 
-        txtEmail=getIntent().getStringExtra("email_id");
+        txtEmail = getIntent().getStringExtra("email_id");
 
-        txtPassword.addTextChangedListener(new TextWatcher()
-        {
+        txtPassword.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -57,13 +58,10 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length() > 0)
-                {
+                if (s.length() > 0) {
                     txtPassword.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     txtPassword.setSelection(s.length());
-                }
-                else if(s.length() == 0)
-                {
+                } else if (s.length() == 0) {
                     txtPassword.setInputType(InputType.TYPE_CLASS_TEXT);
                 }
             }
@@ -74,8 +72,7 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
             }
         });
 
-        txtReTypePass.addTextChangedListener(new TextWatcher()
-        {
+        txtReTypePass.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -83,13 +80,10 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length() > 0)
-                {
+                if (s.length() > 0) {
                     txtReTypePass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                     txtReTypePass.setSelection(s.length());
-                }
-                else if(s.length() == 0)
-                {
+                } else if (s.length() == 0) {
                     txtReTypePass.setInputType(InputType.TYPE_CLASS_TEXT);
                 }
             }
@@ -101,14 +95,37 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
         });
 
         initialize();
+        // ATTENTION: This was auto-generated to handle app links.
+        Intent appLinkIntent = getIntent();
+        String appLinkAction = appLinkIntent.getAction();
+        Uri appLinkData = appLinkIntent.getData();
+        String uri = this.getIntent().getDataString();
+        Log.e(TAG, "appLinkData: "+appLinkData.getUserInfo() );
+        Log.e(TAG, "appLinkData: "+appLinkData.getUserInfo() );
+        Log.e(TAG, "uri: "+uri );
+        handleIntent(getIntent());
     }
 
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        handleIntent(intent);
+    }
     private void initialize() {
         appData = ApplicationData.getSharedInstance();
         lblError.setVisibility(View.GONE);
         msgError.setVisibility(View.GONE);
 
         btnSubmit.setOnClickListener(this);
+    }
+    private void handleIntent(Intent intent) {
+        String appLinkAction = intent.getAction();
+        Uri appLinkData = intent.getData();
+        if (Intent.ACTION_VIEW.equals(appLinkAction) && appLinkData != null){
+            String recipeId = appLinkData.getLastPathSegment();
+            Uri appData = Uri.parse("content://com.recipe_app/recipe/").buildUpon()
+                    .appendPath(recipeId).build();
+            Log.e(TAG, "handleIntent: "+appData.toString() );
+        }
     }
 
     @Override

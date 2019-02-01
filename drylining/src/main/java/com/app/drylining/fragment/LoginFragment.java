@@ -88,7 +88,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Vie
 
             final ViewGroup.LayoutParams params = txtPassword.getLayoutParams();
 
-            txtPassword.addTextChangedListener(new TextWatcher() {
+         /*   txtPassword.addTextChangedListener(new TextWatcher() {
                 @Override
                 public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -108,7 +108,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Vie
                 public void afterTextChanged(Editable s) {
 
                 }
-            });
+            });*/
 
             setHasOptionsMenu(true);
             initialize();
@@ -153,7 +153,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Vie
         if (isValid()) {
             AppDebugLog.println("coming in yes");
             remember();
-            QBLogin();
+            sendLoginRequest();
+            // QBLogin();
         } else {
             AppDebugLog.println("coming in not");
             lblError.setVisibility(View.VISIBLE);
@@ -174,7 +175,8 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Vie
         if (appData.getConnectionDetector().isConnectingToInternet()) {
             String isLogin = appData.getIsLoggedIn();
             if (isLogin.equals("Y")) {
-                QBLogin();
+                //QBLogin();
+                sendLoginRequest();
             }
         } else {
             Util.showNoConnectionDialog(activity);
@@ -209,7 +211,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener, Vie
                 @Override
                 public void onSuccess(Void result, Bundle bundle) {
                     Log.e(TAG, "onSuccess: " + result);
-                    sendLoginRequest();
+
                 }
 
                 @Override

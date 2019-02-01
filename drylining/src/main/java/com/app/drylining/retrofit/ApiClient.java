@@ -1,6 +1,8 @@
 package com.app.drylining.retrofit;
 
 
+import com.app.drylining.util.Constant;
+
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.OkHttpClient;
@@ -10,7 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL ="http://dryliningapp.com/admin/api/";
+   // public static final String BASE_URL ="http://dryliningapp.com/admin/api/";
+    public static final String BASE_URL = Constant.WEBSERVICE_PATH;
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient() {
@@ -19,7 +22,7 @@ public class ApiClient {
                     .connectTimeout(100, TimeUnit.SECONDS)
                     .readTimeout(100,TimeUnit.SECONDS).build();
             retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL).client(client)
+                    .baseUrl(BASE_URL)/*.client(client)*/
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }

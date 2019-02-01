@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CheckBox;
@@ -20,6 +21,7 @@ import com.app.drylining.Util;
 import com.app.drylining.chat.ui.activity.DialogsActivity;
 import com.app.drylining.chat.ui.activity.SelectUsersActivity;
 import com.app.drylining.data.ApplicationData;
+import com.app.drylining.fragment.AddNewOfferFragment;
 import com.app.drylining.model.LogoutModel;
 import com.app.drylining.retrofit.ApiClient;
 import com.app.drylining.retrofit.ApiInterface;
@@ -42,7 +44,7 @@ public class AdminPanel implements View.OnClickListener {
     private TextView txtJobs, txtFavoriteOffer, txtMyAccount, txtNotifySettings, txtSwitchRenter, txtSwitchLessee, txtLogout;
     private TextView txtChats, txtContacts;
     private CheckBox cbRenter, cbLessee;
-
+    private static final String TAG = "AdminPanel";
     private RelativeLayout spLanguageContainer;
     private Spinner spLanguage;
     private CustomSpinnerAdapter spLanguageAdapter;
@@ -228,15 +230,12 @@ public class AdminPanel implements View.OnClickListener {
                 break;
             case R.id.admin_txt_favorite_offer:
                 AppInfo.getInstance().setJobType(202);
-                if (appData.getUserType().equals("R")) {
-                    Intent myOfferIntent = new Intent(mActivity, DashboardActivity.class);
-                    mActivity.startActivity(myOfferIntent);
-                    mActivity.finish();
-                } else if (appData.getUserType().equals("L")) {
-                    Intent mFavoritesIntent = new Intent(mActivity, SearchActivity.class);
-                    mActivity.startActivity(mFavoritesIntent);
-                    mActivity.finish();
-                }
+                Log.e(TAG, "Click My Job Link " );
+                /*Intent myOfferIntent = new Intent(mActivity, DashboardActivity.class);
+                myOfferIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                mActivity.startActivity(myOfferIntent);
+                mActivity.finish();*/
+                new AddNewOfferFragment();
                 break;
             case R.id.admin_txt_my_account:
                 Intent myAccountIntent = new Intent(mActivity, ActivityMyAccount.class);

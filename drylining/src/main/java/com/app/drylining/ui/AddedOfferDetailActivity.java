@@ -312,14 +312,14 @@ public class AddedOfferDetailActivity extends CustomMainActivity implements Requ
             super.onBackPressed();
             try{
             if (mBackActivityName.equals("Notifation")) {
-                finish();
+               finish();
             } else if (mBackActivityName.equals("SearchAcivity")) {
                 finish();
             } else {
-                startActivity(new Intent(this, DashboardActivity.class));
+                //startActivity(new Intent(this, DashboardActivity.class));
                 finish();
             }}catch (Exception e){
-                startActivity(new Intent(this, DashboardActivity.class));
+              //  startActivity(new Intent(this, DashboardActivity.class));
                 finish();
             }
         }

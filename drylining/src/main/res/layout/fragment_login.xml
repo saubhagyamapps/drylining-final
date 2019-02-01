@@ -55,7 +55,7 @@
             android:layout_marginTop="@dimen/large_padding_margin"
             android:background="@drawable/bg_filled"
             android:hint="@string/lbl_password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:padding="@dimen/large_padding_margin"
             android:textAppearance="@style/EditTextStyle"
             android:textColor="@color/detail_text_color"

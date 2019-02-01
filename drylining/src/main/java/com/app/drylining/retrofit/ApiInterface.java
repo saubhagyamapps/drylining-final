@@ -1,10 +1,15 @@
 package com.app.drylining.retrofit;
 
 
+import com.app.drylining.model.ForgotpasswordModel;
 import com.app.drylining.model.LogoutModel;
 import com.app.drylining.model.MSGCountModel;
+import com.app.drylining.model.MyJobModel;
 import com.app.drylining.model.NotificationReadModel;
+import com.app.drylining.model.NotificationsModel;
 import com.app.drylining.model.OTPModel;
+import com.app.drylining.model.RecentToolModel;
+import com.app.drylining.model.RecentlyAddedJobModel;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -34,5 +39,34 @@ public interface ApiInterface {
     @FormUrlEncoded
     @POST("logout.php")
     Call<LogoutModel> logout(@Field("user_id") String userId);
+
+    //http://dryliningapp.com/admin/api/forgot_pass.php
+    @FormUrlEncoded
+    @POST("forgot_pass.php")
+    Call<ForgotpasswordModel> forgatePassword(@Field("email") String email);
+
+
+    //http://dryliningapp.com/admin/api/forgot_pass.php
+    @FormUrlEncoded
+    @POST("new_get_notifications.php")
+    Call<NotificationsModel> getNotifacationList(@Field("page") int page,
+                                                 @Field("userType") String userType,
+                                                 @Field("userId") String userId);
+
+    @FormUrlEncoded
+    @POST("new_get_last_search.php")
+    Call<RecentlyAddedJobModel> getRecentryAddedJob(@Field("senderId") int senderId,
+                                                    @Field("page") int page);
+
+    @FormUrlEncoded
+    @POST("new_get_added_properties.php")
+    Call<MyJobModel> getMyJobList(@Field("user") int senderId,
+                                  @Field("page") int page);
+
+    @FormUrlEncoded
+    @POST("new_get_recent_tools.php")
+    Call<RecentToolModel> getRecentTool(@Field("senderId") int senderId,
+                                        @Field("userType") String userType,
+                                        @Field("page") int page);
 
 }
