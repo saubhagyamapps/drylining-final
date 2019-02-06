@@ -410,7 +410,7 @@ public class SearchedOfferDetailActivity extends CustomMainActivity implements R
                     startActivity(intent);
                 }*/
                 int propId = Integer.parseInt(propInfoObj.getString("id").toString());
-                String propName = propInfoObj.getString("name");
+                String propName = propInfoObj.getString("name").replace("EURO","€").replace("POUND","£");;
                 String propJobType = propInfoObj.getString("job_type");
                 String price = propInfoObj.getString("price");
                 String currency = propInfoObj.getString("currency_type");
@@ -429,11 +429,11 @@ public class SearchedOfferDetailActivity extends CustomMainActivity implements R
 
                 String propPrice = currency_sign + " " + propInfoObj.getString("price");
 
-                String propAddress = propInfoObj.getString("postCity") + ", " + propInfoObj.getString("streetName");
+                String propAddress = propInfoObj.getString("postCity").replace("EURO","€").replace("POUND","£") + ", " + propInfoObj.getString("streetName").replace("EURO","€").replace("POUND","£");
                 //+ " " + propInfoObj.getString("unitCode");
                 String propWorkType = propInfoObj.getString("work_type");
-                String propDesc = propInfoObj.getString("description");
-                String mEmployName = propInfoObj.getString("contact_name");
+                String propDesc = propInfoObj.getString("description").replace("EURO","€").replace("POUND","£");;
+                String mEmployName = propInfoObj.getString("contact_name").replace("EURO","€").replace("POUND","£");
                 String mEmployCon = propInfoObj.getString("contact_mobile");
 
 

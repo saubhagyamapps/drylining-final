@@ -57,7 +57,7 @@ public class ActivityNotifications extends CustomMainActivity {
     private NotificationAdapter adapter;
     private ProgressDialog pdialog;
     private AdminBar adminbar;
-    private static final int PAGE_START = 0;
+    private static final int PAGE_START = 1;
     LinearLayoutManager linearLayoutManager;
     private AdminPanel adminPanel;
     private LinearLayout adminLayout;

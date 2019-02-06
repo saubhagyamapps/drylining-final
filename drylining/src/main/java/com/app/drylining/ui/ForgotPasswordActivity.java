@@ -93,6 +93,9 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                 lblError.setVisibility(View.GONE);
                 if (response.body().getStatus() == 0) {
                     Toast.makeText(ForgotPasswordActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                    Intent intent=new Intent(ForgotPasswordActivity.this,ForgotPassword.class);
+                    startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(ForgotPasswordActivity.this, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                 }

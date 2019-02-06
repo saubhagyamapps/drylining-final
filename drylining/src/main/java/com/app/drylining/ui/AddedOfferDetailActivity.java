@@ -355,7 +355,7 @@ public class AddedOfferDetailActivity extends CustomMainActivity implements Requ
                 propObj = propertyObj;
 
                 JSONObject propInfoObj = propertyObj.getJSONObject("info");
-                String propName = propInfoObj.getString("name");
+                String propName = propInfoObj.getString("name").replace("EURO","€").replace("POUND","£");
                 String propJobType = propInfoObj.getString("job_type");
 
                 String currency = propInfoObj.getString("currency_type");
@@ -373,15 +373,15 @@ public class AddedOfferDetailActivity extends CustomMainActivity implements Requ
                 }
 
                 String propPrice = currency_sign + " " + propInfoObj.getString("price");
-                String propAddress = propInfoObj.getString("postCity") + ", " + propInfoObj.getString("streetName");
+                String propAddress = propInfoObj.getString("postCity").replace("EURO","€").replace("POUND","£") + ", " + propInfoObj.getString("streetName").replace("EURO","€").replace("POUND","£");
                 String propWorkType = propInfoObj.getString("work_type");
                 int job_status = Integer.parseInt(propInfoObj.getString("job_status").toString());
-                String propDesc = propInfoObj.getString("description");
+                String propDesc = propInfoObj.getString("description").replace("EURO","€").replace("POUND","£");
                 String employerId = propInfoObj.getString("user_id");
                 JSONObject workerInfoObj = propertyObj.getJSONObject("worker");
                 String workerName = workerInfoObj.getString("name");
                 String workerPhone = workerInfoObj.getString("phone");
-                String mEmployName = propInfoObj.getString("contact_name");
+                String mEmployName = propInfoObj.getString("contact_name").replace("EURO","€").replace("POUND","£");
                 String mEmployCon = propInfoObj.getString("contact_mobile");
 
                 txtOfferName.setText(propName);

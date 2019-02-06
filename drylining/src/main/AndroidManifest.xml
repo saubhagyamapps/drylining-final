@@ -8,7 +8,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission
         android:name="android.permission.ACCESS_NETWORK_STATE"
@@ -24,6 +23,7 @@
         android:label="@string/app_name"
         android:largeHeap="true"
         android:theme="@style/AppTheme">
+
         <meta-data
             android:name="asset_statements"
             android:resource="@string/asset_statements" />
@@ -37,6 +37,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity
             android:name=".ui.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -48,10 +50,14 @@
             android:name=".ui.ForgotPasswordActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".ui.ForgotPassword"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="stateHidden" />
         <activity
             android:name=".ui.ChangePasswordActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-
             android:windowSoftInputMode="stateHidden">
             <intent-filter android:autoVerify="true">
                 <action android:name="android.intent.action.VIEW" />
@@ -60,9 +66,9 @@
                 <category android:name="android.intent.category.BROWSABLE" />
 
                 <data
-                    android:scheme="http"
                     android:host="drylining.com"
-                    android:pathPrefix="/testing" />
+                    android:pathPrefix="/testing"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
         <activity
@@ -135,9 +141,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".ui.ActivityNotifySettings"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
-
-        <!-- FCM -->
+            android:configChanges="orientation|screenSize|keyboardHidden" /> <!-- FCM -->
         <service android:name=".fcm.MyFcmListenerService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
@@ -147,9 +151,7 @@
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
-        </service>
-
-        <!-- Set custom default icon. This is used when no icon is set for incoming notification messages. -->
+        </service> <!-- Set custom default icon. This is used when no icon is set for incoming notification messages. -->
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
             android:resource="@drawable/notification" />
@@ -162,9 +164,7 @@
             android:resource="@color/app_bg_color" />
         <meta-data
             android:name="com.google.firebase.messaging.default_notification_channel_id"
-            android:value="@string/default_notification_channel_id" />
-        <!-- FCM END -->
-
+            android:value="@string/default_notification_channel_id" /> <!-- FCM END -->
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.app.drylining.fileprovider"
@@ -218,35 +218,29 @@
         <activity
             android:name=".ui.OTPAcivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
-
         <activity
             android:name=".chat.ui.activity.SelectUsersActivity"
             android:theme="@style/ChatActivityTheme"
             android:windowSoftInputMode="stateHidden" />
-
         <activity
             android:name=".chat.ui.activity.DialogsActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/ChatActivityTheme" />
-
         <activity
             android:name=".chat.ui.activity.ChatActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:theme="@style/ChatActivityTheme"
             android:windowSoftInputMode="stateHidden|adjustResize" />
-
         <activity
             android:name=".chat.ui.activity.ChatInfoActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/chat_info"
             android:theme="@style/ChatActivityTheme" />
-
         <activity android:name=".chat.ui.activity.AttachmentImageActivity" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="fc3772ebde8be9072404883b82d14e727154b2c9" />
-
     </application>
 
 </manifest>

@@ -208,24 +208,24 @@ public final class R {
         public static final int texture_view = 0x7f09020d;
     }
     public static final class layout {
-        public static final int exo_playback_control_view = 0x7f0b0066;
-        public static final int exo_simple_player_view = 0x7f0b0067;
-        public static final int list_item_attach_left = 0x7f0b007d;
-        public static final int list_item_attach_left_audio = 0x7f0b007e;
-        public static final int list_item_attach_left_video = 0x7f0b007f;
-        public static final int list_item_attach_right = 0x7f0b0080;
-        public static final int list_item_attach_right_audio = 0x7f0b0081;
-        public static final int list_item_attach_right_video = 0x7f0b0082;
-        public static final int list_item_text_left = 0x7f0b0084;
-        public static final int list_item_text_right = 0x7f0b0085;
-        public static final int widget_exo_playback_audio_control_view = 0x7f0b00a2;
-        public static final int widget_item_attach_left = 0x7f0b00a3;
-        public static final int widget_item_attach_right = 0x7f0b00a4;
-        public static final int widget_link_preview = 0x7f0b00a5;
-        public static final int widget_player_activity = 0x7f0b00a6;
-        public static final int widget_text_msg_frame = 0x7f0b00a7;
-        public static final int widget_text_msg_left = 0x7f0b00a8;
-        public static final int widget_text_msg_right = 0x7f0b00a9;
+        public static final int exo_playback_control_view = 0x7f0b0067;
+        public static final int exo_simple_player_view = 0x7f0b0068;
+        public static final int list_item_attach_left = 0x7f0b007e;
+        public static final int list_item_attach_left_audio = 0x7f0b007f;
+        public static final int list_item_attach_left_video = 0x7f0b0080;
+        public static final int list_item_attach_right = 0x7f0b0081;
+        public static final int list_item_attach_right_audio = 0x7f0b0082;
+        public static final int list_item_attach_right_video = 0x7f0b0083;
+        public static final int list_item_text_left = 0x7f0b0085;
+        public static final int list_item_text_right = 0x7f0b0086;
+        public static final int widget_exo_playback_audio_control_view = 0x7f0b00a3;
+        public static final int widget_item_attach_left = 0x7f0b00a4;
+        public static final int widget_item_attach_right = 0x7f0b00a5;
+        public static final int widget_link_preview = 0x7f0b00a6;
+        public static final int widget_player_activity = 0x7f0b00a7;
+        public static final int widget_text_msg_frame = 0x7f0b00a8;
+        public static final int widget_text_msg_left = 0x7f0b00a9;
+        public static final int widget_text_msg_right = 0x7f0b00aa;
     }
     public static final class string {
         public static final int app_name = 0x7f0f0047;
@@ -329,17 +329,17 @@ public final class R {
         public static final int TextViewTimeMsg_Left = 0x7f100179;
         public static final int TextViewTimeMsg_Right = 0x7f10017a;
         public static final int TimeProgressBarView = 0x7f10019e;
-        public static final int VideoAttachDurationView = 0x7f1001a2;
-        public static final int VideoAttachDurationView_Left = 0x7f1001a3;
-        public static final int VideoAttachDurationView_Right = 0x7f1001a4;
-        public static final int VideoPlayerRootView = 0x7f1001a5;
-        public static final int VideoSimplePlayerView = 0x7f1001a6;
-        public static final int ViewStubTextMsgFrame = 0x7f1001a7;
-        public static final int WidgetTextMessage = 0x7f100200;
-        public static final int WidgetTextMessage_Left = 0x7f100201;
-        public static final int WidgetTextMessage_Right = 0x7f100202;
-        public static final int WidgetTextMsgFrame = 0x7f100203;
-        public static final int WrapContent = 0x7f100204;
+        public static final int VideoAttachDurationView = 0x7f1001a3;
+        public static final int VideoAttachDurationView_Left = 0x7f1001a4;
+        public static final int VideoAttachDurationView_Right = 0x7f1001a5;
+        public static final int VideoPlayerRootView = 0x7f1001a6;
+        public static final int VideoSimplePlayerView = 0x7f1001a7;
+        public static final int ViewStubTextMsgFrame = 0x7f1001a8;
+        public static final int WidgetTextMessage = 0x7f100201;
+        public static final int WidgetTextMessage_Left = 0x7f100202;
+        public static final int WidgetTextMessage_Right = 0x7f100203;
+        public static final int WidgetTextMsgFrame = 0x7f100204;
+        public static final int WrapContent = 0x7f100205;
     }
     public static final class styleable {
         public static final int[] AspectRatioFrameLayout = { 0x7f040164 };

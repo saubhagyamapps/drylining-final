@@ -111,12 +111,12 @@ public final class R {
         public static final int status_bar_notification_info_maxnum = 0x7f0a000a;
     }
     public static final class layout {
-        public static final int notification_action = 0x7f0b0087;
-        public static final int notification_action_tombstone = 0x7f0b0088;
-        public static final int notification_template_custom_big = 0x7f0b008f;
-        public static final int notification_template_icon_group = 0x7f0b0090;
-        public static final int notification_template_part_chronometer = 0x7f0b0094;
-        public static final int notification_template_part_time = 0x7f0b0095;
+        public static final int notification_action = 0x7f0b0088;
+        public static final int notification_action_tombstone = 0x7f0b0089;
+        public static final int notification_template_custom_big = 0x7f0b0090;
+        public static final int notification_template_icon_group = 0x7f0b0091;
+        public static final int notification_template_part_chronometer = 0x7f0b0095;
+        public static final int notification_template_part_time = 0x7f0b0096;
     }
     public static final class string {
         public static final int status_bar_notification_info_overflow = 0x7f0f0156;
@@ -127,9 +127,9 @@ public final class R {
         public static final int TextAppearance_Compat_Notification_Line2 = 0x7f100161;
         public static final int TextAppearance_Compat_Notification_Time = 0x7f100164;
         public static final int TextAppearance_Compat_Notification_Title = 0x7f100166;
-        public static final int Widget_Compat_NotificationActionContainer = 0x7f1001f2;
-        public static final int Widget_Compat_NotificationActionText = 0x7f1001f3;
-        public static final int Widget_Support_CoordinatorLayout = 0x7f1001ff;
+        public static final int Widget_Compat_NotificationActionContainer = 0x7f1001f3;
+        public static final int Widget_Compat_NotificationActionText = 0x7f1001f4;
+        public static final int Widget_Support_CoordinatorLayout = 0x7f100200;
     }
     public static final class styleable {
         public static final int[] CoordinatorLayout = { 0x7f0400e0, 0x7f040190 };

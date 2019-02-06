@@ -44,7 +44,6 @@ import com.app.drylining.ui.AddNewOfferActivity;
 import com.app.drylining.ui.DashboardActivity;
 import com.app.drylining.ui.SearchNewOfferActivity;
 import com.app.drylining.util.PaginationScrollListenerLinear;
-import com.app.drylining.util.PaginationScrollListenerLineartest;
 import com.app.drylining.utils.AppInfo;
 
 import java.util.ArrayList;
@@ -60,8 +59,8 @@ import retrofit2.Response;
 @SuppressLint("ValidFragment")
 public class AddNewOfferFragment extends Fragment {
     private static final String TAG = "AddNewOfferFragment";
-    private static final int PAGE_START = 0;
-    private static final int PAGE_STARTMyJob = 0;
+    private static final int PAGE_START = 1;
+    private static final int PAGE_STARTMyJob = 1;
     RecentlyAddedJobAdepter recentlyAddedJobAdepter;
     MyJobAdepter myJobAdepter;
     LinearLayoutManager linearLayoutManager, linearLayoutManagerMyjob;
@@ -87,7 +86,7 @@ public class AddNewOfferFragment extends Fragment {
     private ArrayList<Offer> offerList, offerList1;
     private ProgressDialog pdialog;
     private String location;
-    private TextView msg_success, txt_none_added_offer, txt_none_offers_new;
+    private TextView msg_success, txtRecentlyNoneJobMsg, txtMyJobMsg;
     private Button btnAddNewOffer;
     private AdminBar adminbar;
 
@@ -128,8 +127,8 @@ public class AddNewOfferFragment extends Fragment {
             editor.apply();
             adminLayout = (LinearLayout) view.findViewById(R.id.adminBar);
             msg_success = (TextView) view.findViewById(R.id.msg_success);
-            txt_none_added_offer = (TextView) view.findViewById(R.id.txt_none_offers);
-            txt_none_offers_new = (TextView) view.findViewById(R.id.txt_none_offers_new);
+            txtMyJobMsg = (TextView) view.findViewById(R.id.txt_none_offers_new);
+            // txtRecentlyNoneJobMsg = (TextView) view.findViewById(R.id.txtRecentlyNoneJobMsg);
             txtMyJob = (Button) view.findViewById(R.id.txtMyJob);
             txtRecentrlyAddJob = (Button) view.findViewById(R.id.txtRecentrlyAddJob);
             btnAddNewOffer = (Button) view.findViewById(R.id.btn_add_offer);
@@ -175,9 +174,6 @@ public class AddNewOfferFragment extends Fragment {
             });
 
 
-
-
-
             btnAddNewOffer.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -208,10 +204,15 @@ public class AddNewOfferFragment extends Fragment {
         txtMyJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentPageMyJob=0;
+                currentPageMyJob = 1;
+                // TOTAL_PAGESMyJob=1;
+                isLoadingmyjob = false;
+                isLastPageMyjob = false;
                 AppInfo.getInstance().setJobType(102);
+                txtMyJobMsg.setVisibility(View.GONE);
                 recyclerViewRecentlyjob.setVisibility(View.GONE);
                 recyclerViewMyJob.setVisibility(View.VISIBLE);
+
                 txtRecentrlyAddJob.setBackgroundColor(getResources().getColor(R.color.white));
                 txtMyJob.setBackgroundResource(R.drawable.app_board_with_padding);
                 btnAddNewOffer.setText("Post Job");
@@ -222,9 +223,11 @@ public class AddNewOfferFragment extends Fragment {
         txtRecentrlyAddJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                currentPage=0;
+                currentPage = 1;
+                txtMyJobMsg.setVisibility(View.GONE);
                 recyclerViewMyJob.setVisibility(View.GONE);
                 recyclerViewRecentlyjob.setVisibility(View.VISIBLE);
+
                 txtMyJob.setBackgroundColor(getResources().getColor(R.color.white));
                 txtRecentrlyAddJob.setBackgroundResource(R.drawable.app_board_with_padding);
                 btnAddNewOffer.setText("New Search");
@@ -246,7 +249,10 @@ public class AddNewOfferFragment extends Fragment {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        loadNextPageMyJob();
+                        if (TOTAL_PAGESMyJob != 1) {
+
+                            loadNextPageMyJob();
+                        }
                     }
                 }, 1000);
             }
@@ -276,14 +282,25 @@ public class AddNewOfferFragment extends Fragment {
             @Override
             public void onResponse(Call<MyJobModel> call, Response<MyJobModel> response) {
 
-                txt_none_offers_new.setVisibility(View.GONE);
-                TOTAL_PAGESMyJob = response.body().getTotalpages();
-                List<MyJobModel.ResultBean> results = response.body().getResult();
-                myJobAdepter.addAll(results);
+                if (!response.body().getStatus().equals("failed")) {
+                    txtMyJobMsg.setVisibility(View.GONE);
 
-                if (currentPageMyJob <= TOTAL_PAGESMyJob)
-                    myJobAdepter.addLoadingFooter();
-                else isLastPageMyjob = true;
+                    TOTAL_PAGESMyJob = response.body().getTotalpages();
+                    List<MyJobModel.ResultBean> results = response.body().getResult();
+                    myJobAdepter.addAll(results);
+                    if (currentPageMyJob <= TOTAL_PAGESMyJob) {
+                        if (TOTAL_PAGESMyJob != 1) {
+                            myJobAdepter.addLoadingFooter();
+                        }
+                    } else {
+                        isLastPageMyjob = true;
+                    }
+
+                } else {
+                    TOTAL_PAGESMyJob = 0;
+                    txtMyJobMsg.setVisibility(View.VISIBLE);
+                }
+
                 cancelProgressDialog();
             }
 
@@ -303,14 +320,19 @@ public class AddNewOfferFragment extends Fragment {
             @Override
             public void onResponse(Call<RecentlyAddedJobModel> call, Response<RecentlyAddedJobModel> response) {
 
-                txt_none_offers_new.setVisibility(View.GONE);
-                TOTAL_PAGES = response.body().getTotalpages();
-                List<RecentlyAddedJobModel.ResultBean> results = response.body().getResult();
-                recentlyAddedJobAdepter.addAll(results);
+                if (!response.body().getStatus().equals("failed")) {
+                    txtMyJobMsg.setVisibility(View.GONE);
+                    TOTAL_PAGES = response.body().getTotalpages();
+                    List<RecentlyAddedJobModel.ResultBean> results = response.body().getResult();
+                    recentlyAddedJobAdepter.addAll(results);
 
-                if (currentPage <= TOTAL_PAGES)
-                    recentlyAddedJobAdepter.addLoadingFooter();
-                else isLastPage = true;
+                    if (currentPage <= TOTAL_PAGES)
+                        recentlyAddedJobAdepter.addLoadingFooter();
+                    else isLastPage = true;
+                } else {
+                    txtMyJobMsg.setVisibility(View.VISIBLE);
+                    TOTAL_PAGES = 0;
+                }
                 cancelProgressDialog();
             }
 
@@ -329,15 +351,21 @@ public class AddNewOfferFragment extends Fragment {
         modelCall.enqueue(new Callback<MyJobModel>() {
             @Override
             public void onResponse(Call<MyJobModel> call, Response<MyJobModel> response) {
+
                 myJobAdepter.removeLoadingFooter();
                 isLoadingmyjob = false;
+                if (!response.body().getStatus().equals("failed")) {
+                    List<MyJobModel.ResultBean> results = response.body().getResult();
+                    myJobAdepter.addAll(results);
+                    if (currentPageMyJob != TOTAL_PAGESMyJob) {
+                        myJobAdepter.addLoadingFooter();
+                    } else {
+                        isLastPageMyjob = true;
+                    }
+                } else {
 
-                List<MyJobModel.ResultBean> results = response.body().getResult();
-                myJobAdepter.addAll(results);
+                }
 
-                if (currentPageMyJob != TOTAL_PAGESMyJob)
-                    myJobAdepter.addLoadingFooter();
-                else isLastPageMyjob = true;
             }
 
             @Override
@@ -354,15 +382,21 @@ public class AddNewOfferFragment extends Fragment {
         modelCall.enqueue(new Callback<RecentlyAddedJobModel>() {
             @Override
             public void onResponse(Call<RecentlyAddedJobModel> call, Response<RecentlyAddedJobModel> response) {
-                recentlyAddedJobAdepter.removeLoadingFooter();
-                isLoading = false;
 
-                List<RecentlyAddedJobModel.ResultBean> results = response.body().getResult();
-                recentlyAddedJobAdepter.addAll(results);
+                if (!response.body().getStatus().equals("failed")) {
 
-                if (currentPage != TOTAL_PAGES)
-                    recentlyAddedJobAdepter.addLoadingFooter();
-                else isLastPage = true;
+                    recentlyAddedJobAdepter.removeLoadingFooter();
+                    isLoading = false;
+
+                    List<RecentlyAddedJobModel.ResultBean> results = response.body().getResult();
+                    recentlyAddedJobAdepter.addAll(results);
+
+                    if (currentPage != TOTAL_PAGES)
+                        recentlyAddedJobAdepter.addLoadingFooter();
+                    else isLastPage = true;
+                } else {
+
+                }
             }
 
             @Override
@@ -371,7 +405,6 @@ public class AddNewOfferFragment extends Fragment {
             }
         });
     }
-
 
 
     private void initialize() {
@@ -416,6 +449,7 @@ public class AddNewOfferFragment extends Fragment {
             Util.showNoConnectionDialog(activity);
         }
     }
+
     private void OnNewSearchClicked() {
         if (appData.getConnectionDetector().isConnectingToInternet()) {
             startActivity(new Intent(this.getActivity(), SearchNewOfferActivity.class));

@@ -1395,7 +1395,7 @@
     <string name="chat_sticker">Sticker</string>
     <string name="chat_unsupported_type">Unsupported dialog type</string>
     <string name="chat_wait_for_attachments_to_upload">Wait for all attachments to upload</string>
-    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">2cd6d4fb-758a-4501-8843-fa59af8800e0</string>
+    <string name="com.crashlytics.android.build_id" ns2:ignore="UnusedResources,TypographyDashes" translatable="false">1b56bf33-c293-4f43-96cc-2aec2c1a0cde</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -3637,6 +3637,9 @@
         <item name="android:indeterminateOnly">false</item>
         <item name="android:max">100</item>
         <item name="android:progressDrawable">@drawable/progress_bar_states</item>
+    </style>
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColorSecondary">@color/white</item>
     </style>
     <style name="UserCheckboxStyle" parent="WrapContent">
         <item name="android:layout_marginRight">@dimen/list_item_side_margin</item>

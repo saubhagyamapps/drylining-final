@@ -273,8 +273,10 @@ public class ModifyOfferByAddressFragment extends Fragment implements RequestTas
                         msgError.setVisibility(View.GONE);
                         RequestTask requestTask = new RequestTask(AppConstant.UPDATE_PROPERTY, AppConstant.HttpRequestType.UPDATE_PROPERTY);
                         requestTask.delegate = ModifyOfferByAddressFragment.this;
-                        requestTask.execute(AppConstant.UPDATE_PROPERTY, postOfferId + "&" + postName + "&" + postPrice + "&" + postCurrencyType + "&" + postCity + "&" + postStreet + "&" + postJobType + "&" + postWorkType + "&" +
-                                postDesc + "&" + postAddType + "&" + postUserId);
+                        requestTask.execute(AppConstant.UPDATE_PROPERTY, postOfferId + "&" + postName.replace("'","\\'").replace("£","POUND").replace("€","EURO") +
+                                "&" + postPrice + "&" + postCurrencyType + "&" + postCity.replace("'","\\'").replace("£","POUND").replace("€","EURO") +
+                                "&" + postStreet.replace("'","\\'").replace("£","POUND").replace("€","EURO") + "&" + postJobType + "&" + postWorkType + "&" +
+                                postDesc.replace("'","\\'").replace("£","POUND").replace("€","EURO") + "&" + postAddType + "&" + postUserId);
                         /*requestTask.execute(AppConstant.UPDATE_PROPERTY, postOfferId, postCity, postStreet, postProperty, postRoom,
                                 postGarage, postPrice, postLongitude, postLatitude, postUserId, postDesc, postUnit, postAddType);*/
                     } else {

@@ -64,12 +64,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\mipmap-xhdpi\\ic_overflow_icon.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_bg_border.xml.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\bg_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_ic_action_start_chat.png.flat",
@@ -140,12 +140,12 @@
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_activity_conversations_lessee.xml.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\layout\\activity_conversations_lessee.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_fragment_modify_tool_by_address.xml.flat",
@@ -232,12 +232,12 @@
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-xxxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_down_arrow_white.png.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\ic_down_arrow_white.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_toolbar_with_text_button.xml.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\layout\\toolbar_with_text_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_down_arrow_white.png.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\ic_down_arrow_white.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_ic_back_arrow.png.flat",
@@ -300,32 +300,32 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\btn_toolbar_txt_color.xml"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_btn_filled.xml.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\btn_filled.xml"
-    },
-    {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_abc_action_menu_layout.xml.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\layout\\abc_action_menu_layout.xml"
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_ripple_effect.xml.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\ripple_effect.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_ic_small_person.png.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-mdpi\\ic_small_person.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_ripple_effect.xml.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\ripple_effect.xml"
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_abc_action_menu_layout.xml.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_btn_filled.xml.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\btn_filled.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi_ic_chat_group.png.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xhdpi\\ic_chat_group.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_left_bubble.9.png.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\chat-message-adapter-2.0.aar\\49da86e18a5cfd9584fbcf1279d07737\\res\\drawable-xxhdpi-v4\\left_bubble.9.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_common_google_signin_btn_text_light.xml.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\6a9007c259e2b2c5de9c8abf681f070c\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_left_bubble.9.png.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\chat-message-adapter-2.0.aar\\49da86e18a5cfd9584fbcf1279d07737\\res\\drawable-xxhdpi-v4\\left_bubble.9.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-ldrtl-hdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -436,12 +436,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxhdpi\\ic_error_white.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_mail_dark.png.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\ic_mail_dark.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\color_design_error.xml.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\f8d5a0d19e97bbf5c27a020be43c0598\\res\\color\\design_error.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi_ic_mail_dark.png.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\ic_mail_dark.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\color_design_tint_password_toggle.xml.flat",
@@ -460,16 +460,16 @@
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-12.0.1.aar\\6a9007c259e2b2c5de9c8abf681f070c\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_exo_edit_mode_logo.png.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\exoplayer-ui-r2.5.1.aar\\7f321b9fbbf077f3c6b535a67ef61c28\\res\\drawable-hdpi-v4\\exo_edit_mode_logo.png"
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_design_navigation_menu.xml.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\f8d5a0d19e97bbf5c27a020be43c0598\\res\\layout\\design_navigation_menu.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-hdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_design_navigation_menu.xml.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\design-27.1.1.aar\\f8d5a0d19e97bbf5c27a020be43c0598\\res\\layout\\design_navigation_menu.xml"
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_exo_edit_mode_logo.png.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\exoplayer-ui-r2.5.1.aar\\7f321b9fbbf077f3c6b535a67ef61c28\\res\\drawable-hdpi-v4\\exo_edit_mode_logo.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_border_gray.xml.flat",
@@ -484,12 +484,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxhdpi\\ic_down_arrow_black.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_abc_ic_star_black_48dp.png.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-hdpi-v4\\abc_ic_star_black_48dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi-v4_exo_controls_next.png.flat",
@@ -504,12 +504,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\ic_action_time.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_btn_filled_gray_non_selected.xml.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\btn_filled_gray_non_selected.xml"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_btn_filled_rounded_gray.xml.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\btn_filled_rounded_gray.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_btn_filled_gray_non_selected.xml.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable\\btn_filled_gray_non_selected.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\anim_abc_popup_enter.xml.flat",
@@ -532,12 +532,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xhdpi\\ic_delete_dark.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_ic_settings_black_24dp.png.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxhdpi\\ic_settings_black_24dp.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-hdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxhdpi_ic_settings_black_24dp.png.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxhdpi\\ic_settings_black_24dp.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi_ic_setting_checked.png.flat",
@@ -568,12 +568,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-hdpi\\ic_key_gray.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_activity_change_password.xml.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\layout\\activity_change_password.xml"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_ic_person_dark.png.flat",
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxxhdpi\\ic_person_dark.png"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_activity_change_password.xml.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\layout\\activity_change_password.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -624,12 +624,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_abc_btn_colored_material.xml.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable\\abc_btn_colored_material.xml"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\color_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_abc_btn_colored_material.xml.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-hdpi-v4_ic_play_circle_outline_white_24dp.png.flat",
@@ -684,12 +684,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-mdpi\\ic_delete.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_ic_person_gray.png.flat",
-        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxxhdpi\\ic_person_gray.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_abc_action_bar_up_container.xml.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xxxhdpi_ic_person_gray.png.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxxhdpi\\ic_person_gray.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable_abc_seekbar_thumb_material.xml.flat",
@@ -728,12 +728,12 @@
         "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\drawable-xxxhdpi\\ic_chat_darck.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-mdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-xhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_abc_text_select_handle_right_mtrl_dark.png.flat",
@@ -816,12 +816,12 @@
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
     },
     {
-        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_abc_list_menu_item_icon.xml.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\drawable-xhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\drawable-xhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\mipmap-xxhdpi_ic_launcher.png.flat",
@@ -2774,6 +2774,10 @@
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\color_abc_secondary_text_material_light.xml.flat",
         "source": "C:\\Users\\Android\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\73ee912949b9ade000bd84cfc1879fec\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_activity_forgote_password.xml.flat",
+        "source": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\src\\main\\res\\layout\\activity_forgote_password.xml"
     },
     {
         "merged": "C:\\Users\\Android\\Documents\\GitHub\\drylining-final\\drylining\\build\\intermediates\\res\\merged\\release\\layout_widget_link_preview.xml.flat",

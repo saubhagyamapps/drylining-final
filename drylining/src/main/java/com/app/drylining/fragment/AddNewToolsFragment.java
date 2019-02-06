@@ -228,11 +228,13 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
                 TOTAL_PAGES = response.body().getTotalpages();
 
                 List<RecentToolModel.ResultBean> results = response.body().getResult();
-                // progressBar.setVisibility(View.GONE);
                 recentToolAdepter.addAll(results);
 
-                if (currentPage <= TOTAL_PAGES) recentToolAdepter.addLoadingFooter();
-                else isLastPage = true;
+                if (currentPage <= TOTAL_PAGES) {
+                    recentToolAdepter.addLoadingFooter();
+                } else {
+                    isLastPage = true;
+                }
             }
 
             @Override
@@ -256,8 +258,12 @@ public class AddNewToolsFragment extends Fragment implements RequestTaskDelegate
                 List<RecentToolModel.ResultBean> results = response.body().getResult();
                 recentToolAdepter.addAll(results);
 
-                if (currentPage != TOTAL_PAGES) recentToolAdepter.addLoadingFooter();
-                else isLastPage = true;
+                if (currentPage != TOTAL_PAGES) {
+                    recentToolAdepter.addLoadingFooter();
+                    Log.e(TAG, "onResponse:Recent Toolsss " + currentPage + "----->" + TOTAL_PAGES);
+                } else {
+                    isLastPage = true;
+                }
             }
 
             @Override

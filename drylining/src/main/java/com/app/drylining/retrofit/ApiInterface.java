@@ -46,23 +46,26 @@ public interface ApiInterface {
     Call<ForgotpasswordModel> forgatePassword(@Field("email") String email);
 
 
-    //http://dryliningapp.com/admin/api/forgot_pass.php
+    //http://dryliningapp.com/admin/api/new_get_notifications.php
     @FormUrlEncoded
     @POST("new_get_notifications.php")
     Call<NotificationsModel> getNotifacationList(@Field("page") int page,
                                                  @Field("userType") String userType,
                                                  @Field("userId") String userId);
 
+    //http://dryliningapp.com/admin/api/new_get_last_search.php
     @FormUrlEncoded
     @POST("new_get_last_search.php")
     Call<RecentlyAddedJobModel> getRecentryAddedJob(@Field("senderId") int senderId,
                                                     @Field("page") int page);
 
+    //http://dryliningapp.com/admin/api/new_get_added_properties.php
     @FormUrlEncoded
     @POST("new_get_added_properties.php")
     Call<MyJobModel> getMyJobList(@Field("user") int senderId,
                                   @Field("page") int page);
 
+    //http://dryliningapp.com/admin/api/new_get_recent_tools.php
     @FormUrlEncoded
     @POST("new_get_recent_tools.php")
     Call<RecentToolModel> getRecentTool(@Field("senderId") int senderId,
